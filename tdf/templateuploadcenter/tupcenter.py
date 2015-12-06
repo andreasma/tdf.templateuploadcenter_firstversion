@@ -23,11 +23,11 @@ class ITUpCenter(model.Schema):
 
 
     title= schema.TextLine(
-        title=_(u"Name of the Templates Center"),
+        title=_(u"Name of the Template Center"),
     )
 
     description=schema.Text(
-        description=_(u"Description of the Templates Center"),
+        description=_(u"Description of the Template Center"),
     )
 
     product_description=schema.Text(
