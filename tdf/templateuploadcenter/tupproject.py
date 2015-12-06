@@ -13,8 +13,8 @@ import re
 from plone.namedfile.field import NamedBlobImage
 from zope.interface import Invalid, invariant
 from plone import api
-from tdf.templateuploadcenter.euprelease import ITUpRelease
-from tdf.templateuploadcenter.eupreleaselink import ITUpReleaseLink
+from tdf.templateuploadcenter.tuprelease import ITUpRelease
+from tdf.templateuploadcenter.tupreleaselink import ITUpReleaseLink
 from z3c.form import validator
 from plone.uuid.interfaces import IUUID
 
