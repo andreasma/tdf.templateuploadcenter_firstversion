@@ -404,7 +404,7 @@ def releaseDefaultTitleValue(self):
     title= self.context.title
     return (title)
 
-@form.default_value(field=IEUpReleaseLink['licenses_choice'])
+@form.default_value(field=ITUpReleaseLink['licenses_choice'])
 def defaultLicense(self):
     licenses = list( self.context.available_licenses)
     defaultlicenses = licenses[0]
