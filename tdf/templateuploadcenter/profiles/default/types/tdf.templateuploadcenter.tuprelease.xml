@@ -20,7 +20,7 @@
     <property name="klass">plone.dexterity.content.Item</property>
 
     <!-- add permission -->
-    <property name="add_permission">tdf.templateuploadcenter.AddExtProject</property>
+    <property name="add_permission">tdf.templateuploadcenter.AddTemplateProject</property>
 
     <!-- enabled behaviors -->
     <property name="behaviors">
