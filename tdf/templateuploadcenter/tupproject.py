@@ -17,6 +17,7 @@ from tdf.templateuploadcenter.tuprelease import ITUpRelease
 from tdf.templateuploadcenter.tupreleaselink import ITUpReleaseLink
 from z3c.form import validator
 from plone.uuid.interfaces import IUUID
+from plone.directives import form
 
 
 
@@ -88,7 +89,7 @@ class ITUpProject(model.Schema):
     )
 
     dexteritytextindexer.searchable('details')
-    model.primary('details')
+    form.primary('details')
     details = RichText(
         title=_(u"Full Project Description"),
         required=False
