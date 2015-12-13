@@ -222,7 +222,7 @@
              <tal:loop repeat="release all_releases">
              <tr>
                  <td>
-                 <h4><a tal:attributes="href release/getId">
+                 <h4><a tal:attributes="href release/absolute_url">
                      <span tal:content="release/Title" /> - <span tal:content="release/releasenumber" /></a></h4>
                  </td>
                  <td>
