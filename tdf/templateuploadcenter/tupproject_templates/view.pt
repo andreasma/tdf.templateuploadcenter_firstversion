@@ -216,11 +216,13 @@
                 <td><h4 i18n:translate="title_description">Description</h4></td>
                 <td><h4 i18n:translate="title_lisenses">License(s)</h4></td>
                 <td><h4 i18n:translate="title_development_status">Development <br />Status</h4></td>
+                <td><h4>Status</h4></td>
             </tr>
             </thead>
              <tbody>
              <tal:loop repeat="release all_releases">
-             <tr>
+             <tr tal:define="wtool release/portal_workflow;
+                             maturity python: wtool.getInfoFor(release, 'review_state')">
                  <td>
                  <h4><a tal:attributes="href release/absolute_url">
                      <span tal:content="release/Title" /> - <span tal:content="release/releasenumber" /></a></h4>
@@ -245,6 +247,7 @@
                         </tal:loop></ul>
                 </td>
                 <td tal:content="release/developmentstatus_choice">Development Status</td>
+                 <td class="maturity" tal:content="maturity" />
              </tr>
              </tal:loop>
              </tbody>
