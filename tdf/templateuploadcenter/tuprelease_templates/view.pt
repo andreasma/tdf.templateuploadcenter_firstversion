@@ -47,8 +47,6 @@
       <p class="documentDescription" tal:content="context/description/title" />
         <h4 class="extcenter" i18n:translate="title_release_details">Release Details</h4>
       <p class="documentDescription" tal:content="structure view/w/details/render" />
-     <h4 class="tupcenter" i18n:translate="title_development_status">Development Status</h4>
-      <div class="tupcenterdevstat" tal:content="structure view/w/developmentstatus_choice/render" />
 
      <h4 class="tupcenterlicense" i18n:translate="title_license_s">License(s)</h4>
       <div class="tupcenterlicense" tal:content="structure view/w/licenses_choice/render" />
