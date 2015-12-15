@@ -23,15 +23,6 @@ from zope.schema.interfaces import IContextAwareDefaultFactory
 
 
 
-def vocabDevelopmentStatus(context):
-    """pick up developmnet status from parent"""
-    developmentstatus_list = getattr(context.__parent__, 'development_status', [])
-    terms = []
-    for value in developmentstatus_list:
-        terms.append(SimpleTerm(value, token=value.encode('unicode_escape'), title=value))
-    return SimpleVocabulary(terms)
-directlyProvides(vocabDevelopmentStatus, IContextSourceBinder)
-
 
 def vocabAvailLicenses(context):
     """ pick up licenses list from parent """
@@ -139,13 +130,6 @@ class ITUpReleaseLink(model.Schema):
         title=_(u"Changelog"),
         description=_(u"A detailed log of what has changed since the previous release."),
         required=False,
-    )
-
-
-    developmentstatus_choice=schema.Choice(
-        title = _(u"Development Status"),
-        source=vocabDevelopmentStatus,
-        required=True
     )
 
     form.widget(licenses_choice=CheckBoxFieldWidget)
