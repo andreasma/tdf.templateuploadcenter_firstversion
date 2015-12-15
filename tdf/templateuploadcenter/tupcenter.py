@@ -41,16 +41,6 @@ class ITUpCenter(model.Schema):
     )
 
 
-    development_status = schema.List(title=_(u"Development Status"),
-        default=['Planing',
-                 'Pre-Alpha',
-                 'Alpha',
-                 'Beta',
-                 'Production/Stable',
-                 'Mature',
-                 'Inactive'],
-        value_type=schema.TextLine()
-    )
 
 
     available_category = schema.List(title=_(u"Available Categories"),
