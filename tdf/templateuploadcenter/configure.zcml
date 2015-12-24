@@ -91,6 +91,12 @@
     />
 
   <subscriber
+    for="tdf.templateuploadcenter.tupcenter.ITUpCenter
+               zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+    handler="tdf.templateuploadcenter.notifications.notifiyAboutNewVersion"
+    />
+
+  <subscriber
     for="tdf.templateuploadcenter.tupproject.ITUpProject
                Products.CMFCore.interfaces.IActionSucceededEvent"
     handler="tdf.templateuploadcenter.tupproject.notifyProjectManager"
