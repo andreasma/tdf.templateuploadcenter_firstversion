@@ -52,18 +52,22 @@
                                  <li tal:repeat="result batch">
                                       <tal:entry
 						                define="project result/getObject;
+						                        url result/getURL;
+							                    projectURL project/absolute_url;
+							                    result_type result/portal_type;
+							                    zoomid   python:project.id.replace('.', '_');
+							                    screenshot   project/getScreenshot | nothing">
 
-						                url result/getURL;
-							            projectURL project/absolute_url;
-							            result_type result/portal_type;
-							            zoomid   python:project.id.replace('.', '_');
-							            screenshot   project/getScreenshot | nothing">
+                                          <h3 style="border-top: none">
+                                              <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
+                                                  <tal:comment replace="nothing">Template One</tal:comment></a>
+                                          </h3>
+                                          <div tal:content="structure project/@@rate-if-you-dare" />
 
                                           <div class="project-thumb thumbzoom"
                                                   tal:condition="screenshot">
                                               <a tal:attributes="href projectURL">
-                                                  <img
-                                                          tal:condition="project/screenshot_thumb|nothing"
+                                                  <img tal:condition="project/screenshot_thumb|nothing"
                                                           tal:replace="structure project/screenshot_thumb" />
                                               </a>
                                           </div>
@@ -73,13 +77,10 @@
                                                       tal:define="scales project/@@images;
                                                                   projectlogo project/@@images/project_logo;
                                                                   scale python:scales.scale('project_logo', 'tile')"
-                                                      tal:replace="structure python:scale and scale.tag(css_class='eupcenterprojectlogo') or None" />
+                                                      tal:replace="structure python:scale and scale.tag(css_class='tupcenterprojectlogo') or None" />
                                           </span>
-                                          <h3 style="border-top: none">
-                                              <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
-                                                  <tal:comment replace="nothing">Extension One</tal:comment></a>
-                                          </h3>
-                                          <div tal:content="structure project/@@rate-if-you-dare" />
+
+
                                           <div class="product-details">
                                               <span class="product-leadin">
                                                   <!---
@@ -91,26 +92,20 @@
                                                   <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
                                               </span>
                                               <p class="product-description"
-                                                      tal:content="python:cropText(project.Description(), desc_length, desc_ellipsis)">
+                                                      tal:content="structure project/description">
                                                   <tal:comment replace="nothing">Project Description.</tal:comment>
                                               </p>
                                           </div>
                                       </tal:entry>
                                  </li>
                              </ul>
-
-
                          </tal:results>
-
-
                     </div>
-
-
                 </div>
                 </div>
 
                  <div tal:condition="python: searchForProducts.find('getCategories') != -1">
-                     <div class="paneeuc">
+                     <div class="panetuc">
                          <h2 tal:condition="context/product_title" i18n:translate="">Search
                              <span tal:content="context/product_title" i18n:name="product_title" />
                          </h2>
@@ -166,8 +161,11 @@
 							                             zoomid   python:project.id.replace('.', '_');
 							                             screenshot   project/getScreenshot | nothing">
                                              <h3 style="border-top: none">
-                                                 <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
-                                                     <tal:comment replace="nothing">Product One</tal:comment></a>
+                                                 <a href=""
+                                                         tal:attributes="href projectURL;"
+                                                         tal:content="project/pretty_title_or_id">
+                                                     <tal:comment replace="nothing">Product One</tal:comment>
+                                                 </a>
                                              </h3>
                                              <div tal:content="structure project/@@rate-if-you-dare" />
                                              <div class="project-thumb thumbzoom" tal:condition="screenshot">
@@ -177,7 +175,11 @@
                                                  </a>
                                              </div>
                                              <span class="project-thumb" tal:condition="not:screenshot">
-                                                 <img tal:condition="project/logo|nothing" tal:replace="structure project/@@images/project_logo" />
+                                                 <img tal:condition="project/logo|nothing"
+                                                         tal:define="scales project/@@images;
+                                                                 projectlogo project/@@images/project_logo;
+                                                                         scale python:scales.scale('project_logo', 'tile')"
+                                                         tal:replace="structure python:scale and scale.tag(css_class='tupcenterprojectlogo') or None" />
                                              </span>
                                              <div class="product-details">
                                                  <span class="product-leadin">
@@ -186,7 +188,8 @@
                                                      Sept. 3, 2008
                                                      </span>
                                                      -->
-                                                     <span i18n:translate="">in</span><span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
+                                                     <span i18n:translate="">in</span>
+                                                     <span tal:replace="python:', '.join(result.getObject().category_choice)"></span>
                                            </span>
                                                  <p class="product-description"
                                                          tal:content="structure project/description">
@@ -239,6 +242,7 @@
 							                    result_type result/portal_type;
 							                    zoomid   python:project.id.replace('.', '_');
 							                    screenshot   project/getScreenshot | nothing">
+
                                         <h3 style="border-top: none">
                                             <a href="" tal:attributes="href projectURL;" 	tal:content="project/pretty_title_or_id">
                                                 <tal:comment replace="nothing">Extension One</tal:comment></a>
@@ -270,7 +274,7 @@
                     <p tal:replace="structure context/install_instructions/output" />
                 </div>
                 <div class="bugreporting" tal:condition="context/reporting_bugs">
-                    <h3>Reporting Extension-Bugs</h3>
+                    <h3>Reporting Template-Bugs</h3>
                     <p tal:replace="structure context/reporting_bugs/output" />
                 </div>
                 <div class="aboutproduct" tal:condition="context/product_description">
@@ -279,9 +283,7 @@
                 </div>
             </div>
         </div>
-
 </tal:main-macro>
 </metal:main>
-
 </body>
 </html>
