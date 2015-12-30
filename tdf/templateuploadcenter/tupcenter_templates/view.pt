@@ -175,7 +175,7 @@
                                                  </a>
                                              </div>
                                              <span class="project-thumb" tal:condition="not:screenshot">
-                                                 <img tal:condition="project/logo|nothing"
+                                                 <img tal:condition="project/project_logo|nothing"
                                                          tal:define="scales project/@@images;
                                                                  projectlogo project/@@images/project_logo;
                                                                          scale python:scales.scale('project_logo', 'tile')"
