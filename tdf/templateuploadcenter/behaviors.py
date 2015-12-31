@@ -12,9 +12,8 @@ class NameForRelease(object):
         self.context = context
 
     def __new__(cls, context):
-        title = context.title
         releasenumber = context.releasenumber
-        title = u'%s %s' % (title,releasenumber)
+        title = u'%s' % (releasenumber)
         releasename = super(NameForRelease, cls).__new__(cls)
         releasename.title = title
         return releasename

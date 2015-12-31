@@ -75,14 +75,11 @@
       permission="zope2.View"
       />
 
-
-  <plone:behavior
-      title="Name from product name and release number"
-      description="generates a name from product name and release number"
-      for="plone.dexterity.interfaces.IDexterityContent"
-      provides=".behaviors.INameForRelease"
+  <adapter for="tdf.templateuploadcenter.tuprelease.ITUpRelease"
       factory=".behaviors.NameForRelease"
+      provides=".behaviors.INameForRelease"
       />
+
 
   <subscriber
     for="tdf.templateuploadcenter.tupproject.ITUpProject
