@@ -92,7 +92,7 @@ class AcceptLegalDeclaration(Invalid):
 
 class ITUpRelease(model.Schema):
 
-
+    form.mode(title='hidden')
     title = schema.TextLine(
         title=_(u"Title"),
         description=_(u"Release Title"),
