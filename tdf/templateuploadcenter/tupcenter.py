@@ -13,6 +13,7 @@ from plone.app.layout.viewlets import ViewletBase
 from Products.CMFCore.utils import getToolByName
 from tdf.templateuploadcenter.tupproject import ITUpProject
 
+from plone.app.multilingual.dx import directives
 
 
 class ITUpCenter(model.Schema):
@@ -53,9 +54,7 @@ class ITUpCenter(model.Schema):
                  'Draw_Template',
                  'Base_Template',
                  'Math_Template',
-                 'Template_Building',
-                 'All modules'],
-
+                 'Template_Building',],
         value_type=schema.TextLine())
 
 
@@ -148,9 +147,10 @@ def notifyAboutNewProject(tupproject, event):
         body =  "A member added a new project"
     )
 
-
-
-
+directives.languageindependent('available_category')
+directives.languageindependent('available_licenses')
+directives.languageindependent('available_versions')
+directives.languageindependent('available_platforms')
 
 # Views
 
