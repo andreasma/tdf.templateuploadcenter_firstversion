@@ -81,6 +81,12 @@
       />
 
 
+  <adapter for="tdf.templateuploadcenter.tupreleaselink.ITUpReleaseLink"
+      factory=".behaviors.NameForLinkedRelease"
+      provides=".behaviors.INameForLinkedRelease"
+      />
+
+
   <subscriber
     for="tdf.templateuploadcenter.tupproject.ITUpProject
                zope.lifecycleevent.interfaces.IObjectAddedEvent"
