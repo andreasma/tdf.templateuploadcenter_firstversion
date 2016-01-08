@@ -24,7 +24,6 @@
 
     <!-- enabled behaviors -->
     <property name="behaviors">
-        <element value="tdf.templateuploadcenter.interfaces.INameForLinkedRelease" />
         <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable" />
         <element value="plone.app.dexterity.behaviors.metadata.IOwnership" />
         <element value="plone.app.dexterity.behaviors.metadata.IPublication" />
