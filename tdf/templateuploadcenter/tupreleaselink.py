@@ -95,11 +95,10 @@ class AcceptLegalDeclaration(Invalid):
 class ITUpReleaseLink(model.Schema):
 
 
-
-    title = schema.TextLine(
-        title=_(u"Title"),
-        description=_(u"Release Title"),
-        min_length=5,
+    form.mode(projecttitle='hidden')
+    projecttitle = schema.TextLine(
+        title=_(u"The Computed Project Title"),
+        description=_(u"The project title will be computed from the parent project title"),
         defaultFactory= getContainerTitle
     )
 
@@ -383,10 +382,6 @@ def contactinfoDefaultValue(data):
     return data.context.contactAddress
 
 
-@form.default_value(field=ITUpReleaseLink['title'])
-def releaseDefaultTitleValue(self):
-    title= self.context.title
-    return (title)
 
 @form.default_value(field=ITUpReleaseLink['licenses_choice'])
 def defaultLicense(self):
