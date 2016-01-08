@@ -76,14 +76,14 @@
       />
 
   <adapter for="tdf.templateuploadcenter.tuprelease.ITUpRelease"
-      factory=".behaviors.NameForRelease"
-      provides=".behaviors.INameForRelease"
+      factory="tdf.templateuploadcenter.releasecustomurl.NameForReleaseURL"
+      provides="tdf.templateuploadcenter.releasecustomurl.INameForReleaseURL"
       />
 
 
   <adapter for="tdf.templateuploadcenter.tupreleaselink.ITUpReleaseLink"
-      factory=".behaviors.NameForLinkedRelease"
-      provides=".behaviors.INameForLinkedRelease"
+      factory="tdf.templateuploadcenter.releasecustomurl.NameForReleaseURL"
+      provides="tdf.templateuploadcenter.releasecustomurl.INameForReleaseURL"
       />
 
 
