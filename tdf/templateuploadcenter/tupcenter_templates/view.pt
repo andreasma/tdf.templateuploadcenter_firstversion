@@ -35,6 +35,8 @@
                         getCategoryName nocall:view/category_name;
                         searchForProducts python:request['QUERY_STRING']">
 
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
+
         <div class="grid-row">
             <div class="grid-cell position-leftmost width-two-thirds">
                 <div tal:condition="python: searchForProducts.find('getCategories')">

@@ -30,6 +30,8 @@
                                                           review_state python:wf_tool.getInfoFor( here, 'review_state', '');">
 <div class="grid-row">
     <div class="grid-cell position-leftmost width-two-thirds">
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
+
                   <p class="portalinfomessage"
            tal:condition="python: is_editable and not review_state == 'published' "
            i18n:domain="plone" i18n:translate="description_cannot_add_before_approved">

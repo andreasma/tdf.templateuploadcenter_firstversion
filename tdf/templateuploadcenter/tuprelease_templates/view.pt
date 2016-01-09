@@ -23,6 +23,8 @@
 
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main" tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
+
 
          <dl class="portalinfomessage"
             tal:define="is_editable context/@@plone_context_state/is_editable;"
