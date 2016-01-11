@@ -12,9 +12,9 @@ tdf.templateuploadcenter.egg-info/paster_plugins.txt
 tdf.templateuploadcenter.egg-info/requires.txt
 tdf.templateuploadcenter.egg-info/top_level.txt
 tdf/templateuploadcenter/__init__.py
-tdf/templateuploadcenter/behaviors.py
-tdf/templateuploadcenter/interfaces.py
+tdf/templateuploadcenter/customreleasename.py
 tdf/templateuploadcenter/notifications.py
+tdf/templateuploadcenter/releasecustomurl.py
 tdf/templateuploadcenter/tests.py
 tdf/templateuploadcenter/tupcenter.py
 tdf/templateuploadcenter/tupproject.py
