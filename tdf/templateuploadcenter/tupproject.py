@@ -170,10 +170,27 @@ def notifyProjectManagerReleaseLinkedAdd (tupproject, event):
         body = "A new linked release was added to your project: '%s'" % (tupproject.title),
          )
 
+def getLatestRelease(self):
+
+    res = None
+    catalog = api.portal.get_tool(name= 'portal_catalog')
+    res = catalog.searchResults(
+        folderpath = '/'.join(context.getPhysicalPath()),
+        review_state = 'published',
+        sort_on = 'Date',
+        sort_order = 'reverse',
+        portal_type = 'tdf.templateuploadcenter.tuprelease, tdf.templateuploadcenter.tupreleaselink')
+
+    if not res:
+        return None
+    else:
+        return res[0]
+
+
 
 class ValidateTUpProjectUniqueness(validator.SimpleFieldValidator):
-    #Validate site-wide uniqueness of project titles.
-
+    """Validate site-wide uniquneess of project titles.
+    """
 
     def validate(self, value):
         # Perform the standard validation first
@@ -194,6 +211,9 @@ validator.WidgetValidatorDiscriminators(
     field=ITUpProject['title'],
 )
 
+
+
+# View
 
 class TUpProjectView(DefaultView):
 
@@ -218,7 +238,7 @@ class TUpProjectView(DefaultView):
 
         context = self.context
         res = None
-        catalog = api.portal.get_tool('portal_catalog')
+        catalog = api.portal.get_tool(name= 'portal_catalog')
 
         res = catalog.searchResults(
             portal_type = ('tdf.templateuploadcenter.tuprelease', 'tdf.templateuploadcenter.tupreleaselink'),
@@ -242,6 +262,4 @@ class TUpProjectView(DefaultView):
             return self.context.toLocalizedTime(latest_release.effective())
         else:
             return None
-
-
 
