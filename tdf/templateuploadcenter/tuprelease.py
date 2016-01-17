@@ -19,6 +19,9 @@ from zope import schema
 
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
+from Products.validation import V_REQUIRED
+from z3c.form import validator
+
 
 
 
@@ -63,8 +66,8 @@ yesnochoice = SimpleVocabulary(
 
 
 @provider(IContextAwareDefaultFactory)
-def getContainerTitle(context):
-    return context.title
+def getContainerTitle(self):
+    return (self.aq_inner.title)
 
 
 @provider(IContextAwareDefaultFactory)
@@ -297,7 +300,6 @@ class ITUpRelease(model.Schema):
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
-
 
 
 
