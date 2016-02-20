@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-02-10 20:10+0000\n"
+"POT-Creation-Date: 2016-02-20 18:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -428,7 +428,7 @@ msgid "Please mark one or more program versions with which this release is compa
 msgstr ""
 
 #: ./tupproject.py:106
-msgid "Please mark one or using the 'CTRL' key two and more entry on the left side and use the arrows in the middle to choose them and get them into the selected items box on the right side."
+msgid "Please select the appropriate categories (one or more) for your project."
 msgstr ""
 
 #: ./tuprelease.py:197
