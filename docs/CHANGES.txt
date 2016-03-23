@@ -4,7 +4,7 @@ Changelog
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Update of the internationalisation template file [Andreas Mantke]
 
 
 0.3 (2016-03-12)

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-02-20 18:38+0000\n"
+"POT-Creation-Date: 2016-03-23 09:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,6 +63,14 @@ msgstr ""
 msgid "<img src=\"++resource++tdf.templateuploadcenter/yellowarrow.png\" alt=\"\" /> Submit your ${product_title_tupproject}"
 msgstr ""
 
+#: ./tupproject_templates/view.pt:46
+msgid "<img src=\"++resource++tdf.templateuploadcenter/yellowarrow.png\" alt=\"\" /> a Release to your ${product_title_tupproject} Project"
+msgstr ""
+
+#: ./tupproject_templates/view.pt:52
+msgid "<img src=\"++resource++tdf.templateuploadcenter/yellowarrow.png\" alt=\"\" /> a linked Release to your ${product_title_tupproject} Project"
+msgstr ""
+
 #: ./tuprelease.py:131
 #: ./tupreleaselink.py:131
 msgid "A detailed log of what has changed since the previous release."
@@ -95,6 +103,10 @@ msgstr ""
 
 #: ./tupproject.py:139
 msgid "Add a screenshot by clicking the 'Browse' button."
+msgstr ""
+
+#: ./tupproject_templates/view.pt:209
+msgid "All Releases"
 msgstr ""
 
 #: ./tupcenter_templates/view.pt:119
@@ -169,6 +181,10 @@ msgstr ""
 #: ./tuprelease.py:178
 #: ./tupreleaselink.py:175
 msgid "Contact email-address for the project."
+msgstr ""
+
+#: ./tupproject_templates/view.pt:94
+msgid "Current Release"
 msgstr ""
 
 #: ./tupcenter_templates/view.pt:221
@@ -488,6 +504,10 @@ msgstr ""
 msgid "Release-Candidate"
 msgstr ""
 
+#: ./tupproject_templates/view.pt:105
+msgid "Released ${latest_release_date}"
+msgstr ""
+
 #: ./profiles/default/workflows/tdf_templateuploadcenter_linked_release_workflow/definition.xml
 #: ./profiles/default/workflows/tdf_templateuploadcenter_release_workflow/definition.xml
 msgid "Retract"
@@ -682,6 +702,11 @@ msgstr ""
 msgid "help_message_remember_is_editable"
 msgstr ""
 
+#. Default: "No stable release available yet."
+#: ./tupproject_templates/view.pt:84
+msgid "help_not_stable_release"
+msgstr ""
+
 #: ./tupcenter_templates/view.pt:94
 msgid "in"
 msgstr ""
@@ -689,6 +714,11 @@ msgstr ""
 #. Default: "Any version"
 #: ./tupcenter_templates/view.pt:129
 msgid "label_any_version"
+msgstr ""
+
+#. Default: "Current Release"
+#: ./tupproject_templates/view.pt:82
+msgid "label_current_stable_release"
 msgstr ""
 
 #. Default: "The Template file"
@@ -701,7 +731,13 @@ msgstr ""
 msgid "label_linked_template_file"
 msgstr ""
 
+#. Default: "More about this release…"
+#: ./tupproject_templates/view.pt:126
+msgid "label_release_details"
+msgstr ""
+
 #. Default: "<img src=\"++resource++tdf.templateuploadcenter/download_icon.gif\" />"
+#: ./tupproject_templates/view.pt:133
 #: ./tuprelease_templates/view.pt:65
 msgid "label_template_file"
 msgstr ""
@@ -709,6 +745,10 @@ msgstr ""
 #: ./profiles/default/workflows/tdf_templateuploadcenter_linked_release_workflow/definition.xml
 #: ./profiles/default/workflows/tdf_templateuploadcenter_release_workflow/definition.xml
 msgid "re-release"
+msgstr ""
+
+#: ./tupproject_templates/view.pt:110
+msgid "tested with:"
 msgstr ""
 
 #. Default: "Available Downloads"
@@ -723,6 +763,26 @@ msgstr ""
 msgid "title_compatibility"
 msgstr ""
 
+#. Default: "Compatibility"
+#: ./tupproject_templates/view.pt:217
+msgid "title_compatiblity"
+msgstr ""
+
+#. Default: "Description"
+#: ./tupproject_templates/view.pt:218
+msgid "title_description"
+msgstr ""
+
+#. Default: "Extension Version"
+#: ./tupproject_templates/view.pt:215
+msgid "title_extension"
+msgstr ""
+
+#. Default: "Current release for the project"
+#: ./tupproject_templates/view.pt:95
+msgid "title_latest_release_project"
+msgstr ""
+
 #. Default: "License(s)"
 #: ./tuprelease_templates/view.pt:52
 #: ./tupreleaselink_templates/view.pt:54
@@ -735,7 +795,18 @@ msgstr ""
 msgid "title_link_to_sourcecode"
 msgstr ""
 
+#. Default: "License(s)"
+#: ./tupproject_templates/view.pt:219
+msgid "title_lisenses"
+msgstr ""
+
+#. Default: "Platform(s)"
+#: ./tupproject_templates/view.pt:216
+msgid "title_platform"
+msgstr ""
+
 #. Default: "Project Resources"
+#: ./tupproject_templates/view.pt:267
 #: ./tuprelease_templates/view.pt:89
 #: ./tupreleaselink_templates/view.pt:114
 msgid "title_project_resources"
@@ -748,6 +819,7 @@ msgid "title_release_details"
 msgstr ""
 
 #. Default: "Screenshot"
+#: ./tupproject_templates/view.pt:278
 #: ./tuprelease_templates/view.pt:102
 #: ./tupreleaselink_templates/view.pt:127
 msgid "title_screenshot"
