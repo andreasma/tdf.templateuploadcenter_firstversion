@@ -17,6 +17,7 @@
             <tal:noborderset tal:define="dummy python:request.set('disable_border', 1)" />
         </tal:noborder>
     </metal:block>
+    <metal:block fill-slot="column_one_slot" />
 </head>
 
 <body>
