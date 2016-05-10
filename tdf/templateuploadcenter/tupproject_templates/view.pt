@@ -266,7 +266,7 @@
                              maturity python: wtool.getInfoFor(release, 'review_state')">
                  <td>
                  <h4><a tal:attributes="href release/absolute_url">
-                     <span tal:content="release/Title" /> - <span tal:content="release/releasenumber" /></a></h4>
+                     <span tal:content="release/Title" /></a></h4>
                  </td>
                  <td>
                      <ul><tal:loop repeat="platform_choice release/platform_choice">
