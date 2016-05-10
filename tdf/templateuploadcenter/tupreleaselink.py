@@ -66,8 +66,8 @@ yesnochoice = SimpleVocabulary(
 
 
 @provider(IContextAwareDefaultFactory)
-def getContainerTitle(context):
-    return context.title
+def getContainerTitle(self):
+    return (self.aq_inner.title)
 
 
 @provider(IContextAwareDefaultFactory)
@@ -94,7 +94,6 @@ class AcceptLegalDeclaration(Invalid):
 
 
 class ITUpReleaseLink(model.Schema):
-
 
     form.mode(projecttitle='hidden')
     projecttitle = schema.TextLine(
