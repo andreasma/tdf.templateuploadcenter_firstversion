@@ -108,7 +108,7 @@
         <h3 tal:condition="context/homepage">Homepage of the Project</h3>
         <div tal:content="context/homepage" />
 
-<h4>Logo</h4>
+<h4 tal:condition="context/project_logo">Logo</h4>
 
 <img src="" alt=""
      tal:condition="context/project_logo|nothing"
