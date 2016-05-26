@@ -156,7 +156,7 @@
                          <tal:loop repeat="compatibility_choice latestRelease/compatibility_choice">
                             <span tal:content="compatibility_choice" />,
                          </tal:loop>
-                     </ul>
+                     </p>
 </tal:compatibility>
 
 <p tal:condition="latestRelease/description">
