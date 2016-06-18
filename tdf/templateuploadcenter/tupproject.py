@@ -21,17 +21,13 @@ from plone.directives import form
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from Products.validation import V_REQUIRED
 
-
-
-
-
 def vocabCategories(context):
     # For add forms
 
     # For other forms edited or displayed
     from tdf.templateuploadcenter.tupcenter import ITUpCenter
     while context is not None and not ITUpCenter.providedBy(context):
-        #context = aq_parent(aq_inner(context))
+        # context = aq_parent(aq_inner(context))
         context = context.__parent__
 
     category_list = []
@@ -46,13 +42,10 @@ def vocabCategories(context):
 directlyProvides(vocabCategories, IContextSourceBinder)
 
 
-
 def isNotEmptyCategory(value):
     if not value:
         raise Invalid(u'You must choose at least one category for your project.')
     return True
-
-
 
 
 checkEmail = re.compile(

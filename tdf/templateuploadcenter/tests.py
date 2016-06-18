@@ -34,11 +34,11 @@ def test_suite():
     return unittest.TestSuite([
 
         # Unit tests
-        #doctestunit.DocFileSuite(
+        # doctestunit.DocFileSuite(
         #    'README.txt', package='tdf.templateuploadcenter',
         #    setUp=testing.setUp, tearDown=testing.tearDown),
 
-        #doctestunit.DocTestSuite(
+        # doctestunit.DocTestSuite(
         #    module='tdf.templateuploadcenter.mymodule',
         #    setUp=testing.setUp, tearDown=testing.tearDown),
 

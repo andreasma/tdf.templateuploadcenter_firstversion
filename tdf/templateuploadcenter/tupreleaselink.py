@@ -24,10 +24,6 @@ from z3c.form import validator
 from plone.uuid.interfaces import IUUID
 from plone import api
 
-
-
-
-
 def vocabAvailLicenses(context):
     """ pick up licenses list from parent """
 
@@ -365,16 +361,12 @@ class ITUpReleaseLink(model.Schema):
 
     @invariant
     def noOSChosen(data):
-        if data.link_to_file is not None and data.platform_choice ==[]:
+        if data.link_to_file is not None and data.platform_choice == []:
             raise Invalid(_(u"Please choose a compatible platform for the linked file."))
-
-
-
 
 
 class ValidateTUpReleaseLinkUniqueness(validator.SimpleFieldValidator):
     # Validate site-wide uniqueness of release titles.
-
 
     def validate(self, value):
         # Perform the standard validation first
@@ -383,12 +375,14 @@ class ValidateTUpReleaseLinkUniqueness(validator.SimpleFieldValidator):
         if value is not None:
             catalog = api.portal.get_tool(name='portal_catalog')
             results = catalog({'Title': value,
-                               'portal_type': ('tdf.templateuploadcenter.tuprelease', 'tdf.templateuploadcenter.tupreleaselink'),})
+                               'portal_type': ('tdf.templateuploadcenter.tuprelease',
+                                               'tdf.templateuploadcenter.tupreleaselink'), })
 
             contextUUID = IUUID(self.context, None)
             for result in results:
                 if result.UID != contextUUID:
-                    raise Invalid(_(u"The release number is already in use. Please choose another one."))
+                    raise Invalid(_(u"The release number is already in use. "
+                                    u"Please choose another one."))
 
 
 validator.WidgetValidatorDiscriminators(
@@ -397,11 +391,7 @@ validator.WidgetValidatorDiscriminators(
 )
 
 
-
-
-
 class TUpReleaseLinkView(DefaultView):
-
 
     def canPublishContent(self):
         return checkPermission('cmf.ModifyPortalContent', self.context)

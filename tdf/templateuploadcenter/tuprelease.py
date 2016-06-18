@@ -25,9 +25,6 @@ from plone.uuid.interfaces import IUUID
 from tdf.templateuploadcenter.tupreleaselink import ITUpReleaseLink
 from plone import api
 
-
-
-
 def vocabAvailLicenses(context):
     """ pick up licenses list from parent """
 
@@ -359,9 +356,7 @@ validator.WidgetValidatorDiscriminators(
 )
 
 
-
 class TUpReleaseView(DefaultView):
 
-
-     def canPublishContent(self):
+    def canPublishContent(self):
         return checkPermission('cmf.ModifyPortalContent', self.context)

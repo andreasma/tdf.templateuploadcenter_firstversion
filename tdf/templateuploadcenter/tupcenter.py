@@ -17,8 +17,6 @@ class ITUpCenter(model.Schema):
     """ An Template Upload Center for LibreOffice templates.
     """
 
-
-
     title= schema.TextLine(
         title=_(u"Name of the Template Center"),
     )
@@ -27,17 +25,14 @@ class ITUpCenter(model.Schema):
         description=_(u"Description of the Template Center"),
     )
 
-    product_description=schema.Text(
+    product_description = schema.Text(
         description=_(u"Description of the features of templates")
     )
-
 
     product_title = schema.TextLine(
         title=_(u"Template Product Name"),
         description=_(u"Name of the Template product, e.g. only Templates or LibreOffice Templates"),
     )
-
-
 
 
     available_category = schema.List(title=_(u"Available Categories"),
