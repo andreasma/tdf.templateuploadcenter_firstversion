@@ -163,7 +163,7 @@ class ITUpReleaseLink(model.Schema):
         title=_(u"Contact email-address"),
         description=_(u"Contact email-address for the project."),
         required=False,
-        defaultFactory = contactinfoDefault
+        defaultFactory=contactinfoDefault
     )
 
     source_code_inside = schema.Choice(
@@ -238,12 +238,13 @@ class ITUpReleaseLink(model.Schema):
 
     external_file_size2 = schema.Float(
         title=_(u"The size of the external hosted file"),
-        description=_(u"Please fill in the size in kilobyte of the external hosted file (e.g. 633, if the size is 633 kb)"),
+        description=_(u"Please fill in the size in kilobyte of the external hosted "
+                      u"file (e.g. 633, if the size is 633 kb)"),
         required=False
     )
 
     form.widget(platform_choice2=CheckBoxFieldWidget)
-    platform_choice2= schema.List(
+    platform_choice2 = schema.List(
         title=_(u" Third linked file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the linked file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
@@ -258,12 +259,13 @@ class ITUpReleaseLink(model.Schema):
 
     external_file_size3 = schema.Float(
         title=_(u"The size of the external hosted file"),
-        description=_(u"Please fill in the size in kilobyte of the external hosted file (e.g. 633, if the size is 633 kb)"),
+        description=_(u"Please fill in the size in kilobyte of the external hosted "
+                      u"file (e.g. 633, if the size is 633 kb)"),
         required=False
     )
 
     form.widget(platform_choice3=CheckBoxFieldWidget)
-    platform_choice3= schema.List(
+    platform_choice3 = schema.List(
         title=_(u" Fourth linked file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the linked file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
@@ -278,12 +280,13 @@ class ITUpReleaseLink(model.Schema):
 
     external_file_size4 = schema.Float(
         title=_(u"The size of the external hosted file"),
-        description=_(u"Please fill in the size in kilobyte of the external hosted file (e.g. 633, if the size is 633 kb)"),
+        description=_(u"Please fill in the size in kilobyte of the external "
+                      u"hosted file (e.g. 633, if the size is 633 kb)"),
         required=False
     )
 
     form.widget(platform_choice4=CheckBoxFieldWidget)
-    platform_choice4= schema.List(
+    platform_choice4 = schema.List(
         title=_(u" Fourth linked file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the linked file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),

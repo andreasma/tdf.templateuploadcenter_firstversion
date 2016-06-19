@@ -165,7 +165,7 @@ class ITUpRelease(model.Schema):
         title=_(u"Contact email-address"),
         description=_(u"Contact email-address for the project."),
         required=False,
-        defaultFactory = contactinfoDefault
+        defaultFactory=contactinfoDefault
     )
 
     source_code_inside = schema.Choice(
@@ -227,7 +227,7 @@ class ITUpRelease(model.Schema):
     )
 
     form.widget(platform_choice2=CheckBoxFieldWidget)
-    platform_choice2= schema.List(
+    platform_choice2 = schema.List(
         title=_(u"Third uploaded file is compatible with the Platform(s))"),
         description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
@@ -241,7 +241,7 @@ class ITUpRelease(model.Schema):
     )
 
     form.widget(platform_choice3=CheckBoxFieldWidget)
-    platform_choice3= schema.List(
+    platform_choice3 = schema.List(
         title=_(u"Fourth uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
@@ -274,7 +274,7 @@ class ITUpRelease(model.Schema):
     )
 
     form.widget(platform_choice5=CheckBoxFieldWidget)
-    platform_choice5= schema.List(
+    platform_choice5 = schema.List(
         title=_(u"Sixth uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
@@ -294,8 +294,8 @@ class ITUpRelease(model.Schema):
     @invariant
     def legaldeclarationaccepted(data):
         if data.accept_legal_declaration is not True:
-           raise AcceptLegalDeclaration(_(u"Please accept the Legal Declaration about "
-                                          u"your Release and your Uploaded File"))
+            raise AcceptLegalDeclaration(_(u"Please accept the Legal Declaration about "
+                                           u"your Release and your Uploaded File"))
 
     @invariant
     def testingvalue(data):

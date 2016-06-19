@@ -165,13 +165,13 @@ def notifyProjectManagerReleaseLinkedAdd(tupproject, event):
 def getLatestRelease(self):
 
     res = None
-    catalog = api.portal.get_tool(name= 'portal_catalog')
+    catalog = api.portal.get_tool(name='portal_catalog')
     res = catalog.searchResults(
-        folderpath = '/'.join(context.getPhysicalPath()),
-        review_state = 'published',
-        sort_on = 'Date',
-        sort_order = 'reverse',
-        portal_type = 'tdf.templateuploadcenter.tuprelease, tdf.templateuploadcenter.tupreleaselink')
+        folderpath='/'.join(context.getPhysicalPath()),
+        review_state='published',
+        sort_on='Date',
+        sort_order='reverse',
+        portal_type='tdf.templateuploadcenter.tuprelease, tdf.templateuploadcenter.tupreleaselink')
 
     if not res:
         return None
@@ -225,14 +225,14 @@ class TUpProjectView(DefaultView):
 
         context = self.context
         res = None
-        catalog = api.portal.get_tool(name= 'portal_catalog')
+        catalog = api.portal.get_tool(name='portal_catalog')
 
         res = catalog.searchResults(
-            portal_type = ('tdf.templateuploadcenter.tuprelease', 'tdf.templateuploadcenter.tupreleaselink'),
-            path = '/'.join(context.getPhysicalPath()),
-            review_state = 'final',
-            sort_on = 'id',
-            sort_order = 'reverse')
+            portal_type=('tdf.templateuploadcenter.tuprelease', 'tdf.templateuploadcenter.tupreleaselink'),
+            path='/'.join(context.getPhysicalPath()),
+            review_state='final',
+            sort_on='id',
+            sort_order='reverse')
 
         if not res:
             return None

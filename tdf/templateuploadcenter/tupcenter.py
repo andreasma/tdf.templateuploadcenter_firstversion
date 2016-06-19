@@ -121,7 +121,6 @@ class ITUpCenter(model.Schema):
                  'UNIX (other)'],
          value_type=schema.TextLine())
 
-
     form.primary('install_instructions')
     install_instructions = RichText(
         title=_(u"Template Installation Instructions"),
@@ -165,9 +164,9 @@ class ITUpCenter(model.Schema):
 
 def notifyAboutNewProject(tupproject, event):
     api.portal.send_email(
-        recipient = "templates@libreoffice.org",
-        subject = "A Project with the title %s was added" % (tupproject.title),
-        body =  "A member added a new project"
+        recipient="templates@libreoffice.org",
+        subject="A Project with the title %s was added" % (tupproject.title),
+        body="A member added a new project"
     )
 
 directives.languageindependent('available_category')
@@ -180,7 +179,6 @@ directives.languageindependent('available_platforms')
 
 class TUpCenterView(BrowserView):
 
-
     def tupprojects(self):
         context = aq_inner(self.context)
         catalog = api.portal.get_tool(name='portal_catalog')
@@ -188,7 +186,6 @@ class TUpCenterView(BrowserView):
         return catalog(object_provides=ITUpProject.__identifier__,
              path='/'.join(context.getPhysicalPath()),
              sort_order='sortable_title')
-
 
     def get_latest_program_release(self):
         """Get the latest version from the vocabulary. This only
@@ -202,7 +199,6 @@ class TUpCenterView(BrowserView):
     def category_name(self):
         category = list(self.context.available_category)
         return category
-
 
     def tupproject_count(self):
         """Return number of projects
@@ -224,20 +220,20 @@ class TUpCenterView(BrowserView):
         catalog = api.portal.get_tool(name='portal_catalog')
         sort_on = 'positive_ratings'
         contentFilter = {
-                         'sort_on' : sort_on,
+                         'sort_on': sort_on,
                          'sort_order': 'reverse',
                          'review_state': 'published',
-                         'portal_type' : 'tdf.templateuploadcenter.tupproject'}
+                         'portal_type': 'tdf.templateuploadcenter.tupproject'}
         return catalog(**contentFilter)
 
     def get_newest_products(self):
         self.catalog = api.portal.get_tool(name='portal_catalog')
         sort_on = 'created'
         contentFilter = {
-                          'sort_on' : sort_on,
-                          'sort_order' : 'reverse',
+                          'sort_on': sort_on,
+                          'sort_order': 'reverse',
                           'review_state': 'published',
-                          'portal_type':'tdf.templateuploadcenter.tupproject'}
+                          'portal_type': 'tdf.templateuploadcenter.tupproject'}
 
         results = self.catalog(**contentFilter)
 
@@ -247,7 +243,7 @@ class TUpCenterView(BrowserView):
         self.catalog = api.portal.get_tool(name='portal_catalog')
         sort_on = 'positive_ratings'
         contentFilter = {
-	                     'sort_on' : sort_on,
+	                     'sort_on': sort_on,
 
                          'SearchableText': SearchableText,
 	                     'sort_order': 'reverse',
@@ -264,3 +260,4 @@ class TUpCenterView(BrowserView):
 
 class TUpCenterOwnProjectsViewlet(ViewletBase):
     pass
+
