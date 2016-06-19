@@ -17,11 +17,11 @@ class ITUpCenter(model.Schema):
     """ An Template Upload Center for LibreOffice templates.
     """
 
-    title= schema.TextLine(
+    title = schema.TextLine(
         title=_(u"Name of the Template Center"),
     )
 
-    description=schema.Text(
+    description = schema.Text(
         description=_(u"Description of the Template Center"),
     )
 
@@ -34,60 +34,58 @@ class ITUpCenter(model.Schema):
         description=_(u"Name of the Template product, e.g. only Templates or LibreOffice Templates"),
     )
 
-
     available_category = schema.List(title=_(u"Available Categories"),
-        default=['Accounting',
-                 'Agenda',
-                 'Arts',
-                 'Book',
-                 'Brochure / Pamphlet',
-                 'Budget',
-                 'Business',
-                 'Business POS'
-                 'Business Shipping',
-                 'Calendar',
-                 'Cards',
-                 'Curriculum Vitae',
-                 'CD / DVD|CD',
-                 'Certificate',
-                 'Checkbook',
-                 'Christmas',
-                 'Computer',
-                 'Conference',
-                 'E-book',
-                 'Education',
-                 'Academia',
-                 'Elementary/Secondary school panels',
-                 'Envelope'
-                 'Fax',
-                 'Genealogy',
-                 'Grocery',
-                 'Invoice',
-                 'Labels',
-                 'LibreLogo',
-                 'Letter',
-                 'Magazine',
-                 'Media',
-                 'Medical',
-                 'Memo',
-                 'Music',
-                 'Newsletter',
-                 'Notes',
-                 'Paper',
-                 'Presentation',
-                 'Recipe',
-                 'Science',
-                 'Sports',
-                 'Timeline',
-                 'Timesheet',
-                 'Trades',
-                 'To Do List',
-                 'Writer',
-                 ],
-        value_type=schema.TextLine())
+                                     default=['Accounting',
+                                              'Agenda',
+                                              'Arts',
+                                              'Book',
+                                              'Brochure / Pamphlet',
+                                              'Budget',
+                                              'Business',
+                                              'Business POS',
+                                              'Business Shipping',
+                                              'Calendar',
+                                              'Cards',
+                                              'Curriculum Vitae',
+                                              'CD / DVD|CD',
+                                              'Certificate',
+                                              'Checkbook',
+                                              'Christmas',
+                                              'Computer',
+                                              'Conference',
+                                              'E-book',
+                                              'Education',
+                                              'Academia',
+                                              'Elementary/Secondary school panels',
+                                              'Envelope'
+                                              'Fax',
+                                              'Genealogy',
+                                              'Grocery',
+                                              'Invoice',
+                                              'Labels',
+                                              'LibreLogo',
+                                              'Letter',
+                                              'Magazine',
+                                              'Media',
+                                              'Medical',
+                                              'Memo',
+                                              'Music',
+                                              'Newsletter',
+                                              'Notes',
+                                              'Paper',
+                                              'Presentation',
+                                              'Recipe',
+                                              'Science',
+                                              'Sports',
+                                              'Timeline',
+                                              'Timesheet',
+                                              'Trades',
+                                              'To Do List',
+                                              'Writer',
+                                              ],
+                                     value_type=schema.TextLine())
 
-
-    available_licenses =schema.List(title=_(u"Available Licenses"),
+    available_licenses = schema.List(title=_(u"Available Licenses"),
         default=['GNU-GPL-v3+ (General Public License Version 3 and later)',
                  'GNU-GPL-v2 (GNU General Public License Version 2)',
                  'LGPL-v3+ (GNU Lesser General Public License Version 3 and later)',
@@ -96,7 +94,7 @@ class ITUpCenter(model.Schema):
                  'MPL-v2.0+ (Mozilla Public License Version 2.0 or later)',
                  'MPL-v1.1 (Mozilla Public License Version 1.1)',
                  'CC-BY-SA-v4 (Creative Commons Attribution-ShareAlike 4.0 International)',
-                 'CC-by-sa-v3 (Creative Commons Attribution-ShareAlike 3.0)',],
+                 'CC-by-sa-v3 (Creative Commons Attribution-ShareAlike 3.0)', ],
         value_type=schema.TextLine())
 
     available_versions = schema.List(title=_(u"Available Versions"),
@@ -124,7 +122,6 @@ class ITUpCenter(model.Schema):
          value_type=schema.TextLine())
 
 
-
     form.primary('install_instructions')
     install_instructions = RichText(
         title=_(u"Template Installation Instructions"),
@@ -144,16 +141,12 @@ class ITUpCenter(model.Schema):
         required=False
     )
 
-
-
-
     legal_disclaimer = schema.Text(
         title=_(u"Text of the Legal Disclaimer and Limitations"),
         description=_(u"Enter the text of the legal disclaimer and limitations that should be displayed to the project creator and should be accepted by the owner of the project."),
         default=_(u"Fill in the legal disclaimer, that had to be accepted by the project owner"),
         required=False
     )
-
 
     title_legaldownloaddisclaimer = schema.TextLine(
         title=_(u"Title of the Legal Disclaimer and Limitations for Downloads"),
@@ -184,8 +177,8 @@ directives.languageindependent('available_platforms')
 
 # Views
 
-class TUpCenterView(BrowserView):
 
+class TUpCenterView(BrowserView):
 
 
     def tupprojects(self):
@@ -197,7 +190,6 @@ class TUpCenterView(BrowserView):
              sort_order='sortable_title')
 
 
-
     def get_latest_program_release(self):
         """Get the latest version from the vocabulary. This only
         goes by string sorting so would need to be reworked if the
@@ -207,11 +199,9 @@ class TUpCenterView(BrowserView):
         versions.sort(reverse=True)
         return versions[0]
 
-
     def category_name(self):
         category = list(self.context.available_category)
         return category
-
 
 
     def tupproject_count(self):
@@ -222,7 +212,6 @@ class TUpCenterView(BrowserView):
 
         return len(catalog(portal_type='tdf.templateuploadcenter.tupproject'))
 
-
     def tuprelease_count(self):
         """Return number of downloadable files
         """
@@ -230,9 +219,6 @@ class TUpCenterView(BrowserView):
         catalog = api.portal.get_tool(name='portal_catalog')
 
         return len(catalog(portal_type='tdf.templateuploadcenter.tuprelease'))
-
-
-
 
     def get_most_popular_products(self):
         catalog = api.portal.get_tool(name='portal_catalog')
@@ -243,7 +229,6 @@ class TUpCenterView(BrowserView):
                          'review_state': 'published',
                          'portal_type' : 'tdf.templateuploadcenter.tupproject'}
         return catalog(**contentFilter)
-
 
     def get_newest_products(self):
         self.catalog = api.portal.get_tool(name='portal_catalog')
@@ -257,7 +242,6 @@ class TUpCenterView(BrowserView):
         results = self.catalog(**contentFilter)
 
         return results
-
 
     def get_products(self, category, version, sort_on, SearchableText=None):
         self.catalog = api.portal.get_tool(name='portal_catalog')

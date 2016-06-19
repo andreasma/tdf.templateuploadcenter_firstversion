@@ -24,6 +24,7 @@ from z3c.form import validator
 from plone.uuid.interfaces import IUUID
 from plone import api
 
+
 def vocabAvailLicenses(context):
     """ pick up licenses list from parent """
 
@@ -59,9 +60,8 @@ directlyProvides(vocabAvailPlatforms, IContextSourceBinder)
 
 yesnochoice = SimpleVocabulary(
     [SimpleTerm(value=0, title=_(u'No')),
-     SimpleTerm(value=1, title=_(u'Yes')),]
+     SimpleTerm(value=1, title=_(u'Yes')), ]
     )
-
 
 
 @provider(IContextAwareDefaultFactory)
@@ -90,38 +90,31 @@ class AcceptLegalDeclaration(Invalid):
     __doc__ = _(u"It is necessary that you accept the Legal Declaration")
 
 
-
-
 class ITUpReleaseLink(model.Schema):
 
     form.mode(projecttitle='hidden')
     projecttitle = schema.TextLine(
         title=_(u"The Computed Project Title"),
         description=_(u"The project title will be computed from the parent project title"),
-        defaultFactory= getContainerTitle
+        defaultFactory=getContainerTitle
     )
 
-    releasenumber=schema.TextLine(
+    releasenumber = schema.TextLine(
         title=_(u"Release Number"),
         description=_(u"Release Number (up to eight chars)"),
         default=_(u"1.0"),
         max_length=8
     )
 
-
     description = schema.Text(
         title=_(u"Release Summary"),
     )
-
-
 
     form.primary('details')
     details = RichText(
         title=_(u"Full Release Description"),
         required=False
     )
-
-
 
     form.primary('changelog')
     changelog = RichText(
@@ -131,7 +124,7 @@ class ITUpReleaseLink(model.Schema):
     )
 
     form.widget(licenses_choice=CheckBoxFieldWidget)
-    licenses_choice= schema.List(
+    licenses_choice = schema.List(
         title=_(u'License of the uploaded file'),
         description=_(u"Please mark one or more licenses you publish your release."),
         value_type=schema.Choice(source=vocabAvailLicenses),
@@ -139,30 +132,28 @@ class ITUpReleaseLink(model.Schema):
     )
 
     form.widget(compatibility_choice=CheckBoxFieldWidget)
-    compatibility_choice= schema.List(
+    compatibility_choice = schema.List(
         title=_(u"Compatible with versions of LibreOffice"),
         description=_(u"Please mark one or more program versions with which this release is compatible with."),
         value_type=schema.Choice(source=vocabAvailVersions),
         required=True,
     )
 
-
-
     form.mode(title_declaration_legal='display')
-    title_declaration_legal=schema.TextLine(
+    title_declaration_legal = schema.TextLine(
         title=_(u""),
         required=False,
-        defaultFactory = legal_declaration_title
+        defaultFactory=legal_declaration_title
     )
 
     form.mode(declaration_legal='display')
     declaration_legal = schema.Text(
         title=_(u""),
         required=False,
-        defaultFactory = legal_declaration_text
+        defaultFactory=legal_declaration_text
     )
 
-    accept_legal_declaration=schema.Bool(
+    accept_legal_declaration = schema.Bool(
         title=_(u"Accept the above legal disclaimer"),
         description=_(u"Please declare that you accept the above legal disclaimer"),
         required=True
@@ -186,7 +177,6 @@ class ITUpReleaseLink(model.Schema):
         required=False
     )
 
-
     link_to_file = schema.URI(
         title=_(u"The Link to the file of the release"),
         description=_(u"Please insert a link to your extension file."),
@@ -199,7 +189,6 @@ class ITUpReleaseLink(model.Schema):
         required=False
     )
 
-
     form.widget(platform_choice=CheckBoxFieldWidget)
     platform_choice= schema.List(
         title=_(u" First linked file is compatible with the Platform(s)"),
@@ -207,7 +196,6 @@ class ITUpReleaseLink(model.Schema):
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
-
 
     form.mode(information_further_file_uploads='display')
     form.primary('information_further_file_uploads')
@@ -217,13 +205,10 @@ class ITUpReleaseLink(model.Schema):
         required = False
      )
 
-
-
     form.fieldset('fileset1',
         label=u"Further linked files for this release",
         fields=['link_to_file1', 'platform_choice1', 'link_to_file2', 'platform_choice2', 'link_to_file3', 'platform_choice3']
     )
-
 
     link_to_file1 = schema.URI(
         title=_(u"The Link to the file of the release"),
@@ -245,14 +230,11 @@ class ITUpReleaseLink(model.Schema):
         required=True,
     )
 
-
-
     link_to_file2 = schema.URI(
         title=_(u"The Link to the file of the release"),
         description=_(u"Please insert a link to your extension file."),
         required=False
     )
-
 
     external_file_size2 = schema.Float(
         title=_(u"The size of the external hosted file"),
@@ -268,15 +250,11 @@ class ITUpReleaseLink(model.Schema):
         required=True
     )
 
-
-
     link_to_file3 = schema.URI(
         title=_(u"The Link to the file of the release"),
         description=_(u"Please insert a link to your extension file."),
         required=False
     )
-
-
 
     external_file_size3 = schema.Float(
         title=_(u"The size of the external hosted file"),
@@ -298,8 +276,6 @@ class ITUpReleaseLink(model.Schema):
         required=False
     )
 
-
-
     external_file_size4 = schema.Float(
         title=_(u"The size of the external hosted file"),
         description=_(u"Please fill in the size in kilobyte of the external hosted file (e.g. 633, if the size is 633 kb)"),
@@ -314,30 +290,26 @@ class ITUpReleaseLink(model.Schema):
         required=True,
     )
 
-
     link_to_file5 = schema.URI(
         title=_(u"The Link to the file of the release"),
         description=_(u"Please insert a link to your extension file."),
         required=False
     )
 
-
-
     external_file_size5 = schema.Float(
         title=_(u"The size of the external hosted file"),
-        description=_(u"Please fill in the size in kilobyte of the external hosted file (e.g. 633, if the size is 633 kb)"),
+        description=_(u"Please fill in the size in kilobyte of the external hosted "
+                      u"file (e.g. 633, if the size is 633 kb)"),
         required=False
     )
 
     form.widget(platform_choice5=CheckBoxFieldWidget)
-    platform_choice5= schema.List(
+    platform_choice5 = schema.List(
         title=_(u" Fourth linked file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the linked file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
         required=True,
     )
-
-
 
     @invariant
     def licensenotchoosen(value):
@@ -352,7 +324,8 @@ class ITUpReleaseLink(model.Schema):
     @invariant
     def legaldeclarationaccepted(data):
         if data.accept_legal_declaration is not True:
-           raise AcceptLegalDeclaration(_(u"Please accept the Legal Declaration about your Release and your linked File"))
+            raise AcceptLegalDeclaration(_(u"Please accept the Legal Declaration about your "
+                                           u"Release and your linked File"))
 
     @invariant
     def testingvalue(data):
