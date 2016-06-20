@@ -185,12 +185,13 @@ class ITUpReleaseLink(model.Schema):
 
     external_file_size = schema.Float(
         title=_(u"The size of the external hosted file"),
-        description=_(u"Please fill in the size in kilobyte of the external hosted file (e.g. 633, if the size is 633 kb)"),
+        description=_(u"Please fill in the size in kilobyte of the external hosted "
+                      u"file (e.g. 633, if the size is 633 kb)"),
         required=False
     )
 
     form.widget(platform_choice=CheckBoxFieldWidget)
-    platform_choice= schema.List(
+    platform_choice = schema.List(
         title=_(u" First linked file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
@@ -200,15 +201,18 @@ class ITUpReleaseLink(model.Schema):
     form.mode(information_further_file_uploads='display')
     form.primary('information_further_file_uploads')
     information_further_file_uploads = RichText(
-        title = _(u"Further linked files for this Release"),
-        description = _(u"If you want to link more files for this release, e.g. because there are files for other operating systems, you'll find the fields to link this files on the register 'Further linked files for this Release'."),
-        required = False
+        title=_(u"Further linked files for this Release"),
+        description=_(u"If you want to link more files for this release, e.g. because there are files for "
+                      u"other operating systems, you'll find the fields to link this files on the "
+                      u"register 'Further linked files for this Release'."),
+        required=False
      )
 
     form.fieldset('fileset1',
-        label=u"Further linked files for this release",
-        fields=['link_to_file1', 'platform_choice1', 'link_to_file2', 'platform_choice2', 'link_to_file3', 'platform_choice3']
-    )
+                  label=u"Further linked files for this release",
+                  fields=['link_to_file1', 'platform_choice1', 'link_to_file2', 'platform_choice2',
+                          'link_to_file3', 'platform_choice3']
+                  )
 
     link_to_file1 = schema.URI(
         title=_(u"The Link to the file of the release"),
@@ -218,12 +222,13 @@ class ITUpReleaseLink(model.Schema):
 
     external_file_size1 = schema.Float(
         title=_(u"The size of the external hosted file"),
-        description=_(u"Please fill in the size in kilobyte of the external hosted file (e.g. 633, if the size is 633 kb)"),
+        description=_(u"Please fill in the size in kilobyte of the external hosted "
+                      u"file (e.g. 633, if the size is 633 kb)"),
         required=False
     )
 
     form.widget(platform_choice1=CheckBoxFieldWidget)
-    platform_choice1= schema.List(
+    platform_choice1 = schema.List(
         title=_(u" Second linked file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the linked file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),

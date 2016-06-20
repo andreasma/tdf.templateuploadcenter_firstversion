@@ -113,7 +113,8 @@ class ITUpProject(model.Schema):
 
     documentation_link = schema.URI(
         title=_(u"URL of documentation repository "),
-        description=_(u"If the project has externally hosted documentation, enter its URL (example: 'http://www.mysite.org')."),
+        description=_(u"If the project has externally hosted documentation, enter its "
+                      u"URL (example: 'http://www.mysite.org')."),
         required=False
     )
 
@@ -213,10 +214,10 @@ class TUpProjectView(DefaultView):
         catalog = api.portal.get_tool(name='portal_catalog')
         current_path = "/".join(self.context.getPhysicalPath())
         res = catalog.searchResults(
-            portal_type = ('tdf.templateuploadcenter.tuprelease', 'tdf.templateuploadcenter.tupreleaselink'),
-            path =current_path,
-            sort_on = 'id',
-            sort_order = 'reverse')
+            portal_type=('tdf.templateuploadcenter.tuprelease', 'tdf.templateuploadcenter.tupreleaselink'),
+            path=current_path,
+            sort_on='id',
+            sort_order='reverse')
         return [r.getObject() for r in res]
 
     def latest_release(self):

@@ -186,7 +186,7 @@ class ITUpRelease(model.Schema):
     )
 
     form.widget(platform_choice=CheckBoxFieldWidget)
-    platform_choice= schema.List(
+    platform_choice = schema.List(
         title=_(u" First uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
@@ -196,15 +196,17 @@ class ITUpRelease(model.Schema):
     form.mode(information_further_file_uploads='display')
     model.primary('information_further_file_uploads')
     information_further_file_uploads = RichText(
-        title = _(u"Further File Uploads for this Release"),
-        description = _(u"If you want to upload more files for this release, e.g. because there are files for other operating systems, you'll find the upload fields on the register 'File Upload 1' and 'File Upload 2'."),
-        required = False
+        title=_(u"Further File Uploads for this Release"),
+        description=_(u"If you want to upload more files for this release, e.g. because there are files for "
+                      u"other operating systems, you'll find the upload fields on the "
+                      u"register 'File Upload 1' and 'File Upload 2'."),
+        required=False
      )
 
     form.fieldset('fileset1',
-        label=u"File Upload 1",
-        fields=['file1', 'platform_choice1', 'file2', 'platform_choice2', 'file3', 'platform_choice3']
-    )
+                  label=u"File Upload 1",
+                  fields=['file1', 'platform_choice1', 'file2', 'platform_choice2', 'file3', 'platform_choice3']
+                  )
 
     file1 = NamedBlobFile(
         title=_(u"The second file you want to upload (this is optional)"),
@@ -213,7 +215,7 @@ class ITUpRelease(model.Schema):
     )
 
     form.widget(platform_choice1=CheckBoxFieldWidget)
-    platform_choice1= schema.List(
+    platform_choice1 = schema.List(
         title=_(u"Second uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
@@ -249,9 +251,9 @@ class ITUpRelease(model.Schema):
     )
 
     form.fieldset('fileset2',
-        label=u"File Upload 2",
-        fields=['file4', 'platform_choice4', 'file5', 'platform_choice5']
-    )
+                  label=u"File Upload 2",
+                  fields=['file4', 'platform_choice4', 'file5', 'platform_choice5']
+                  )
 
     file4 = NamedBlobFile(
         title=_(u"The fifth file you want to upload (this is optional)"),
@@ -260,7 +262,7 @@ class ITUpRelease(model.Schema):
     )
 
     form.widget(platform_choice4=CheckBoxFieldWidget)
-    platform_choice4= schema.List(
+    platform_choice4 = schema.List(
         title=_(u"Fifth uploaded file is compatible with the Platform(s)"),
         description=_(u"Please mark one or more platforms with which the uploaded file is compatible."),
         value_type=schema.Choice(source=vocabAvailPlatforms),
