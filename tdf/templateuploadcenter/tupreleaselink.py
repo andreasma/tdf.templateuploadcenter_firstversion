@@ -321,12 +321,12 @@ class ITUpReleaseLink(model.Schema):
 
     @invariant
     def licensenotchoosen(value):
-        if value.licenses_choice == []:
+        if not value.licenses_choice:
             raise Invalid(_(u"Please choose a license for your release."))
 
     @invariant
     def compatibilitynotchoosen(data):
-        if data.compatibility_choice == []:
+        if not data.compatibility_choice:
             raise Invalid(_(u"Please choose one or more compatible product versions for your release"))
 
     @invariant
