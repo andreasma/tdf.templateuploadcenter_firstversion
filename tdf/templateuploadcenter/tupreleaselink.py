@@ -27,11 +27,11 @@ import re
 
 
 checkfileextension = re.compile(
-    r"^.*\.(oxt|OXT)").match
+    r"^.*\.(ott|OTT|ots|OTS|otp|OTP|otg|OTG)").match
 
 def validatelinkedfileextension(value):
     if not checkfileextension(value):
-        raise Invalid(u'You could only link to an URL (a file) that is a LibreOffice extension file with a proper file extension.')
+        raise Invalid(u'You could only link to an URL (a file) that is a LibreOffice template file with a proper file extension.')
     return True
 
 
