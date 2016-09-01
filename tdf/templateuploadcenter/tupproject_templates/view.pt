@@ -59,7 +59,7 @@
 	<div class="grid-cell position-two-thirds width-third">
 		<div class="sidebar">
             <div id="projectresources">
-            <h2 i18n:translate="title_project_resources">Project Resources</h2>
+            <h2 i18n:translate="">Project Resources</h2>
             <ul>
             <li tal:condition="context/documentation_link">
                 <a href="" tal:attributes="href context/documentation_link">External Documentation</a>
@@ -70,7 +70,7 @@
             </ul>
 
         <div tal:condition="context/screenshot">
-            <h4 i18n:translate="title_screenshot">Screenshot</h4>
+            <h4 i18n:translate="">Screenshot</h4>
 
               <div class="tupcenterprojectscreenshot" width="250px" tal:define="screenshot nocall:context/screenshot"
                    tal:condition="nocall:screenshot">
@@ -102,14 +102,14 @@
          <h1 class="documentFirstHeading"><span tal:content="context/title" /></h1>
         <div tal:content="structure context/@@rate-if-you-dare" />
         <p class="documentDescription"><span tal:content="context/description" /></p>
-        <h2 tal:condition="context/details" class="documentSecondHeading">Project Description</h2>
+        <h2 tal:condition="context/details" class="documentSecondHeading" i18n:translate="">Project Description</h2>
         <p class="documentDescription" tal:content="structure view/w/details/render" />
-        <h3>Category/Categories</h3>
+        <h3 i18n:translate="">Category/Categories</h3>
         <div tal:content="structure view/w/category_choice/render" />
-        <h3 tal:condition="context/homepage">Homepage of the Project</h3>
+        <h3 tal:condition="context/homepage" i18n:translate="">Homepage of the Project</h3>
         <div tal:content="context/homepage" />
 
-<h4 tal:condition="context/project_logo">Logo</h4>
+<h4 tal:condition="context/project_logo" i18n:translate="">Logo</h4>
 
 <img src="" alt=""
      tal:condition="context/project_logo|nothing"
@@ -120,9 +120,9 @@
              <div class="visualClear"></div>
 
         <tal:nostable condition="nocall:not:latestRelease">
-            <h2 i18n:translate="label_current_stable_release">Current Release</h2>
+            <h2 i18n:translate="">Current Release</h2>
 
-                <p i18n:translate="help_not_stable_release">
+                <p i18n:translate="">
                     No stable release available yet.
                 </p>
             <tal:noreleases tal:condition="python:latestRelease is None">
@@ -165,7 +165,7 @@
                  Main focus for this release is the following.
                 </span><br />
                 <a href="#"
-                   i18n:translate="label_release_details"
+                   i18n:translate=""
                    tal:attributes="href latestRelease/absolute_url">More about this release&hellip;</a>
                 </p>
             <dl>
@@ -253,11 +253,11 @@
 <table class="tupcenterprojecttable" border="1" width="100%">
             <thead>
             <tr bgcolor="#40FB27">
-                <td><h4 i18n:translate="title_extension">Extension Version</h4></td>
-                <td><h4 i18n:translate="title_platform">Platform(s)</h4></td>
-                <td><h4 i18n:translate="title_compatiblity">Compatibility</h4></td>
-                <td><h4 i18n:translate="title_description">Description</h4></td>
-                <td><h4 i18n:translate="title_lisenses">License(s)</h4></td>
+                <td><h4 i18n:translate="">Template Version</h4></td>
+                <td><h4 i18n:translate="">Platform(s)</h4></td>
+                <td><h4 i18n:translate="">Compatibility</h4></td>
+                <td><h4 i18n:translate="">Description</h4></td>
+                <td><h4 i18n:translate="">License(s)</h4></td>
                 <td><h4>Status</h4></td>
             </tr>
             </thead>
