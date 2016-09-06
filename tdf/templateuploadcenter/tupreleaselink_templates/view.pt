@@ -35,7 +35,7 @@
             tal:condition="python: is_editable and review_state == 'pre-release' ">
             <dt i18n:translate="">Info</dt>
             <dd>
-                <span i18n:translate="help_message_remember_is_editable">Remember to publish your release once all files have been added.</span>
+                <span i18n:translate="">Remember to publish your release once all files have been added.</span>
             </dd>
         </dl>
 
@@ -71,7 +71,7 @@
                 </div>
 
         <div tal:condition="context/link_to_source">
-            <h4 class="eupcenter" i18n:translate="title_link_to_sourcecode">Link to Source Code</h4>
+            <h4 class="eupcenter" i18n:translate="">Link to Source Code</h4>
             <p tal:content="context/link_to_source"><span i18n:translate="">The Link to the Source Code</span></p>
         </div>
             <div class="eupcenterreleaseinstallinstructions" tal:condition="context/install_instructions">
